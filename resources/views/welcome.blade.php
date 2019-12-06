@@ -1,33 +1,21 @@
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Medical Centre</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
 
             .full-height {
                 height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
             }
 
             .position-ref {
@@ -40,16 +28,12 @@
                 top: 18px;
             }
 
-            .content {
-                text-align: center;
-            }
-
             .title {
                 font-size: 84px;
             }
 
             .links > a {
-                color: #636b6f;
+                color: red;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -57,34 +41,40 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+            <div class="container">
+                <div class="card-group">
+                  <div class="card shadow p-3 mb-5 bg-white rounded-lg">
+                    <a href="{{ route('patient.home') }}">
+                    <img class="card-img-top" src="https://t4.ftcdn.net/jpg/00/86/77/09/240_F_86770989_eRWUg3bzOuzEIAgy9StCbfkuxP1KRJOw.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Patient</h5>
+                      <p class="card-text">Please Click Here to login for Patients</p>
+                    </div>
+                  </div>
+                  <div class="card shadow p-3 mb-5 bg-white rounded-lg">
+                    <a href="{{ route('doctor.home') }}">
+                    <img class="card-img-top" src="https://t4.ftcdn.net/jpg/02/06/09/31/240_F_206093179_FIiDttOFxVd6XJpv6xqprrNvCjjbRSGX.jpg" height="176" alt="Card image cap">
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+                    <div class="card-body">
+                      <h5 class="card-title">Doctor</h5>
+                      <p class="card-text">Please Click Here to login for Doctors</p>
+                    </div>
+                  </div>
+
+                  <div class="card shadow p-3 mb-5 bg-white rounded">
+                    <a href="{{ route('admin.home') }}">
+                    <img class="card-img-top" src="https://t3.ftcdn.net/jpg/02/62/28/66/240_F_262286632_ApqDVEVYHra3oxvRvqSBGXK6y0Tqq8Pq.jpg" height="176" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Administrator</h5>
+                      <p class="card-text">Please Click Here to login for Administrators</p>
+                    </div>
+                  </div>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
                 </div>
-
-            </div>
-        </div>
+          </div>
     </body>
 </html>
+@endsection

@@ -14,6 +14,7 @@
           <p> There are no Visits</p>
           @else
           <table id="table-visits" class="table table-hover">
+            <!-- table headings -->
             <thead>
               <th>Doctor</th>
               <th>Patient</th>
@@ -23,6 +24,7 @@
               <th></th>
             </thead>
             <tbody>
+              <!-- this is creating a table of visits that consists of both doctors and patients information -->
               @foreach ($visits as $visit)
               <tr data-id="{{ $visit->id }}">
                 <td>{{ $visit->doctor->user->name }}</td>
@@ -31,6 +33,7 @@
                 <td>{{ $visit->time}}</td>
                 <td>{{ $visit->price}}</td>
                 <td>
+                  <!-- view and edit buttons -->
                   <a href="{{ route('admin.visits.show', $visit->id) }}" class="btn btn-default">View</a>
                   <a href="{{ route('admin.visits.edit', $visit->id) }}" class="btn btn-warning">Edit</a>
                   <form style="display:inline-block" method="POST" action="{{route('admin.visits.destroy',$visit->id)}}">

@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder
       $role_patient = Role::where('name', 'patient')->first();
 
 
+      // These are a few users that was input to the database to display example data and also used for login testing
       $admin = new User();
       $admin->name = 'Darryl Sullivan';
       $admin->email = 'admin@medicalcentre.ie';

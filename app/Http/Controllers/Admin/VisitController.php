@@ -35,7 +35,6 @@ class VisitController extends Controller
    */
   public function create()
   {
-
     $doctors = Doctor::all();
     $patients = Patient::all();
 

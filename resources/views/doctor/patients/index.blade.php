@@ -15,6 +15,7 @@
           @else
           <table id="table-patients" class="table table-hover">
             <thead>
+              <!-- table headings -->
               <th>Name</th>
               <th>Email</th>
               <th>Address</th>
@@ -22,6 +23,7 @@
               <th>Policy Number</th>
             </thead>
             <tbody>
+              <!-- creating a table to display patient information -->
               @foreach ($patients as $patient)
               <tr data-id="{{ $patient->id }}">
                 <td>{{ $patient->user->name }}</td>
@@ -30,6 +32,7 @@
                 <td>{{ $patient->insurance->name}}</td>
                 <td>{{ $patient->policy_no }}</td>
                 <td>
+                  <!-- view,edit & delete buttons -->
                   <a href="{{ route('doctor.patients.show', $patient->id) }}" class="btn btn-default">View</a>
                   <a href="{{ route('doctor.patients.edit', $patient->id) }}" class="btn btn-warning">Edit</a>
                   <form style="display:inline-block" method="POST" action="{{route('doctor.patients.destroy', $patient->user_id) }}">

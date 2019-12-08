@@ -12,6 +12,7 @@ class InsuranceCompanySeeder extends Seeder
      */
       public function run()
       {
+        // this factory is used to create 5 insurance company names to be input into the insurance_companies table
           factory(App\InsuranceCompany::class, 5)->create();
       }
     }

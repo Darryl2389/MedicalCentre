@@ -11,6 +11,8 @@ class DoctorsTableSeeder extends Seeder
      *
      * @return void
      */
+
+     // This function is used to create unique data for each doctor seeded to the database
     public function run()
     {
       $role_doctor = Role::where('name','doctor')-> first();

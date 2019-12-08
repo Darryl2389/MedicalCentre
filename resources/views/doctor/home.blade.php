@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+              <!-- changing date field to unique format -->
                 <div class="card-header">{{$date->toRfc850String()}}</div>
 
                 <div class="card-body">
@@ -14,6 +15,7 @@
                         </div>
                     @endif
 
+                    <!-- displaying currently logged in users name -->
                     Hi {{Auth::user()->name}}
 
                 </div>
@@ -21,8 +23,8 @@
         <hr>
         <div class="card-header bg-dark text-white">
           Upcoming Visits: {{$total_visits}}
-          <!-- disabling add visit button for patients -->
-          <!-- <a href="{{route('doctor.visits.create')}}" class="btn btn-primary float-right">Add</a> -->
+
+          <a href="{{route('doctor.visits.create')}}" class="btn btn-primary float-right">Add</a>
         </div>
         <div class="card-body bg-light">
           @if (count($visits) === 0)
@@ -30,6 +32,7 @@
           @else
           <table id="table-visits" class="table table-hover">
             <thead>
+              <!-- table headings -->
               <th>Patient</th>
               <th>Date</th>
               <th>Time</th>
@@ -42,6 +45,7 @@
                 <td>{{ $visit->date}}</td>
                 <td>{{ $visit->time}}</td>
                 <td>
+                  <!-- view, edit & delete buttons -->
                   <a href="{{ route('doctor.visits.show', $visit->id) }}" class="btn btn-primary">View</a>
                   <a href="{{ route('doctor.visits.edit', $visit->id) }}" class="btn btn-warning">Edit</a>
                   <form style="display:inline-block" method="POST" action="{{route('doctor.visits.destroy',$visit->id)}}">

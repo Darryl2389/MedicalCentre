@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+              <!-- changes the date string to a unique format -->
                 <div class="card-header">{{$date->toRfc850String()}}</div>
 
                 <div class="card-body">
@@ -14,6 +15,7 @@
                         </div>
                     @endif
 
+                    <!-- displays currently logged in users name -->
                     Hi {{Auth::user()->name}}
                 </div>
             </div>
@@ -28,8 +30,10 @@
 
               <p> You have no scheduled visits</p>
               @else
+              <!-- adding table to user dashboard -->
               <table id="table-visits" class="table table-hover">
                 <thead>
+                  <!-- table headings -->
                   <th>Doctor</th>
                   <th>Patient</th>
                   <th>Date</th>
@@ -45,6 +49,7 @@
                     <td>{{ $visit->time}}</td>
                     <td>{{ $visit->price}}</td>
                     <td>
+                      <!-- delete button -->
                       <a href="{{ route('patient.visits.show', $visit->id) }}" class="btn btn-default">View</a>
                       <form style="display:inline-block" method="POST" action="{{route('patient.visits.destroy',$visit->id)}}">
                         <input type="hidden" name="_method" value="DELETE">

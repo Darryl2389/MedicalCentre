@@ -14,18 +14,21 @@
           <p> There are no Doctors</p>
           @else
           <table id="table-doctors" class="table table-hover">
+            <!-- table headings -->
             <thead>
               <th>Name</th>
               <th>Email</th>
               <th>Start Date </th>
             </thead>
             <tbody>
+              <!-- this allows a display of both doctor and user information associated with the doctor user -->
               @foreach ($doctors as $doctor)
               <tr data-id="{{ $doctor->id }}">
                 <td>{{ $doctor->user->name }}</td>
                 <td>{{ $doctor->user->email }}</td>
                 <td>{{ $doctor->start_date }}</td>
                 <td>
+                  <!-- view and edit buttons -->
                   <a href="{{ route('admin.doctors.show', $doctor->id) }}" class="btn btn-default">View</a>
                   <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="btn btn-warning">Edit</a>
                   <form style="display:inline-block" method="POST" action="{{route('admin.doctors.destroy', $doctor->user_id) }}">

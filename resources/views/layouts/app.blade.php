@@ -27,6 +27,9 @@
                 <img src="https://cdn5.vectorstock.com/i/thumb-large/06/49/cross-plus-medical-logo-icon-design-vector-27210649.jpg" height=80; width=80;>
                   Medical Centre
               </a>
+              <!-- These if statments provide the correct navbar for each logged in user -->
+
+              <!-- Admin -->
                 @if(Auth::user() && Auth::user()->hasRole('admin'))
                 <a class="navbar-brand" href="{{ route('admin.doctors.index') }}">
                   Doctors
@@ -37,6 +40,8 @@
                 <a class="navbar-brand" href="{{ route('admin.visits.index') }}">
                     Visits
                 </a>
+
+                <!-- Doctor -->
                 @elseif(Auth::user() && Auth::user()->hasRole('doctor'))
                 <a class="navbar-brand" href="{{ route('doctor.patients.index') }}">
                     Patients
@@ -44,6 +49,8 @@
                 <a class="navbar-brand" href="{{ route('doctor.visits.index') }}">
                     Visits
                 </a>
+
+                <!-- Patient -->
                 @elseif(Auth::user() && Auth::user()->hasRole('patient'))
                 <a class="navbar-brand" href="{{ route('patient.visits.index') }}">
                     Visits

@@ -16,6 +16,7 @@
           @else
           <table id="table-visits" class="table table-hover">
             <thead>
+              <!-- table headings -->
               <th>Doctor</th>
               <th>Patient</th>
               <th>Date</th>
@@ -23,6 +24,7 @@
               <th>Price</th>
             </thead>
             <tbody>
+              <!-- creating a visits table for the patient login -->
               @foreach ($visits as $visit)
               <tr data-id="{{ $visit->id }}">
                 <td>{{ $visit->doctor->user->name }}</td>
@@ -31,6 +33,7 @@
                 <td>{{ $visit->time}}</td>
                 <td>{{ $visit->price}}</td>
                 <td>
+                  <!-- view and delete buttons -->
                   <a href="{{ route('patient.visits.show', $visit->id) }}" class="btn btn-default">View</a>
                   <form style="display:inline-block" method="POST" action="{{route('patient.visits.destroy',$visit->id)}}">
                     <input type="hidden" name="_method" value="DELETE">

@@ -75,6 +75,7 @@ class PatientController extends Controller
       $patient->address = $request->input('address');
       $patient->phone_number = $request->input('phone_number');
       $patient->insurance_yes = $request->input('insurance_yes');
+      // this if statement will bypass the insurance field if the 'NO' radio button is selected
       if($request->input('insurance_yes')){
         $patient->insurance_id = $request->input('insurance_id');
         $patient->policy_no = $request->input('policy_no');

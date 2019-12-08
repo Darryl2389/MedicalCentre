@@ -12,6 +12,8 @@ class PatientsTableSeeder extends Seeder
      *
      * @return void
      */
+
+     // This function populates the patient table with unique data for each patient
     public function run()
     {
       $role_patient = Role::where('name','patient')-> first();

@@ -14,6 +14,7 @@
           <p> There are no Patients</p>
           @else
           <table id="table-patients" class="table table-hover">
+            <!-- table headings -->
             <thead>
               <th>Name</th>
               <th>Email</th>
@@ -23,6 +24,7 @@
               <th></th>
             </thead>
             <tbody>
+              <!-- this allows a display of both patient and user information associated with the patient user -->
               @foreach ($patients as $patient)
               <tr data-id="{{ $patient->id }}">
                 <td>{{ $patient->user->name }}</td>
@@ -31,6 +33,7 @@
                 <td>{{ $patient->insurance->name}}</td>
                 <td>{{ $patient->policy_no }}</td>
                 <td>
+                  <!-- view and edit buttons on the patient table for the admin -->
                   <a href="{{ route('admin.patients.show', $patient->id) }}" class="btn btn-default">View</a>
                   <a href="{{ route('admin.patients.edit', $patient->id) }}" class="btn btn-warning">Edit</a>
                   <form style="display:inline-block" method="POST" action="{{route('admin.patients.destroy', $patient->user_id) }}">
